@@ -45,11 +45,12 @@ public class MainActivity extends BaseActivity implements ImageResponder {
     protected void onResume() {
         super.onResume();
 
-//        SearchService.getInstance().searchForImagesWithTerm("cat", new ServiceCallback<List<Page>>() {
+//        SearchService.getInstance().searchForImagesWithTerm("hello", new ServiceCallback<List<Page>>() {
 //            @Override
 //            public void finishedLoading(List<Page> pages, String error) {
-//
-//            }
+//                mPageImagesAdapter.clearItems();
+//                mPageImagesAdapter.addItems(pages);
+//        }
 //        });
 
         SearchService.getInstance().searchForRandomImages(new ServiceCallback<List<Page>>() {
