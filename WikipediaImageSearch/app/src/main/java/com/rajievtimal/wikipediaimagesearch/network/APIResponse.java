@@ -12,20 +12,22 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
-//This is our API Response Wrapper. T is the model object
+//This is our API Response Wrapper. T represents is the model object type
 
 public class APIResponse<T> {
 
     @SerializedName("query")
-
     private JsonElement mQuery;
-    private T mObject;
+    private T mPages;
 
-    public T getObject() {
-        //This turns the query into objects when it's accessed. Doing some memoization here.
+    //This turns the query into objects when it's accessed. Doing some memoization here.
+
+    public T getPages() {
+        //TODO: Refactor this to handle multiple types of objects, not just List<Page>
+        //TODO: Not working with generic Type yet, maybe use custom Deserializer instead
         //TODO: This could be cleaned up and optimized a bit
         //TODO: Use setters & Jackson Converter to make deserialization happen on network thread instead of when response accessed from main thread
-        if (mQuery != null && mObject == null) {
+        if (mQuery != null && mPages == null) {
             JsonObject query = mQuery.getAsJsonObject();
             //Flattening Page ID Keys
             JsonArray array = new JsonArray();
@@ -35,12 +37,11 @@ public class APIResponse<T> {
                         array.add(pageMap.getValue());
                     }
             }
-            //TODO: Not working with generic Type yet.
             Type listType = new TypeToken<List<Page>>() {
             }.getType();
-            mObject = new Gson().fromJson(array, listType);
+            mPages = new Gson().fromJson(array, listType);
         }
-        return mObject;
+        return mPages;
     }
 
 }

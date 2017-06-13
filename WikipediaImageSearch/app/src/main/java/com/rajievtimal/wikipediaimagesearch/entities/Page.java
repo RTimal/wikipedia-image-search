@@ -11,4 +11,8 @@ public class Page {
 
     @SerializedName("title")
     String mCat;
+
+    public String getImageURL() {
+        return (mThumbnail != null ? mThumbnail.getSourceURL() : null);
+    }
 }

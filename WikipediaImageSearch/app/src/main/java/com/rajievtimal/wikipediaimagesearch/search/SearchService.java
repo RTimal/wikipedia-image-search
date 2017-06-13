@@ -64,8 +64,8 @@ class SearchService extends BaseService {
         apiCall.enqueue(new Callback<APIResponse<List<Page>>>() {
             @Override
             public void onResponse(@NonNull Call<APIResponse<List<Page>>> call, @NonNull Response<APIResponse<List<Page>>> response) {
-                if (response.body().getObject() != null) {
-                    cb.finishedLoading(response.body().getObject(), null);
+                if (response.body().getPages() != null) {
+                    cb.finishedLoading(response.body().getPages(), null);
                 } else {
                     //TODO: Return action error returned from API here, not just a string !
                     cb.finishedLoading(null, "Error loading pages");

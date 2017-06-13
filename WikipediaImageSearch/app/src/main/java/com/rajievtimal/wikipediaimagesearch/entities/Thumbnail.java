@@ -12,4 +12,8 @@ class Thumbnail {
 
     @SerializedName("height")
     Integer mHeight;
+
+    public String getSourceURL() {
+        return mSource;
+    }
 }
