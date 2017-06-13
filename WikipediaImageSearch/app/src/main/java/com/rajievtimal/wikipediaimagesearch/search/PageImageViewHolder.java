@@ -18,6 +18,8 @@ import com.rajievtimal.wikipediaimagesearch.entities.Page;
 
 import java.lang.ref.WeakReference;
 
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+
 public class PageImageViewHolder extends RecyclerView.ViewHolder {
 
     private final ItemPageImageBinding binding;
@@ -46,6 +48,7 @@ public class PageImageViewHolder extends RecyclerView.ViewHolder {
                 .error(R.drawable.page_image_placeholder)
                 .placeholder(R.drawable.page_image_placeholder)
                 .centerCrop()
+                .transition(withCrossFade())
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
