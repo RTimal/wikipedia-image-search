@@ -1,7 +1,5 @@
 package com.rajievtimal.wikipediaimagesearch.search;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.annotation.UiThread;
@@ -44,8 +42,8 @@ public class PageImageViewHolder extends RecyclerView.ViewHolder {
         mPage = page;
         GlideApp.with(this.itemView.getContext())
                 .load(page.getImageURL())
-                .fallback(new ColorDrawable(Color.BLACK))
-                .placeholder(new ColorDrawable(Color.BLACK))
+                .fallback(R.drawable.page_image_placeholder)
+//                .placeholder(R.mipmap.ic_launcher)
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {

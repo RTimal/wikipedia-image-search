@@ -22,7 +22,7 @@ public class APIResponse<T> {
 
     //This turns the query into objects when it's accessed. Doing some memoization here.
 
-    public T getPages() {
+    public T getPagesWithImages() {
         //TODO: Refactor this to handle multiple types of objects, not just List<Page>
         //TODO: Not working with generic Type yet, maybe use custom Deserializer instead
         //TODO: This could be cleaned up and optimized a bit
@@ -34,7 +34,10 @@ public class APIResponse<T> {
             if (query.get("pages") != null) {
                 for (Map.Entry<String, JsonElement> pageMap : query.get("pages").getAsJsonObject().entrySet())
                     if (pageMap.getValue() != null) {
-                        array.add(pageMap.getValue());
+                        //Only return pages with images
+                        if (pageMap.getValue().getAsJsonObject().has("thumbnail")) {
+                            array.add(pageMap.getValue());
+                        }
                     }
             }
             Type listType = new TypeToken<List<Page>>() {

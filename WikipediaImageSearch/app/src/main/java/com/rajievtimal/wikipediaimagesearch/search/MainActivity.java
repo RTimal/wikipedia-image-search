@@ -31,6 +31,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
     private StaggeredGridLayoutManager mLayoutManager;
     private PageImagesAdapter mPageImagesAdapter;
 
+    //TODO: Use this
     @BindingAdapter({"bind:imageUrl"})
     public static void loadImage(final ImageView view, final String url) {
 
@@ -42,7 +43,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         setContentView(R.layout.activity_main);
         mTextMessage = (TextView) findViewById(R.id.message);
         mRecyclerView = (RecyclerView) findViewById(R.id.page_images_recycler_view);
-        mLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        mLayoutManager = new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mPageImagesAdapter = new PageImagesAdapter(new WeakReference<ImageResponder>(this));
         mRecyclerView.setAdapter(mPageImagesAdapter);
