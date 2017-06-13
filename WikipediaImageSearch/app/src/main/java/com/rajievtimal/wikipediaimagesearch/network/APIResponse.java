@@ -17,17 +17,14 @@ import java.util.Map;
 public class APIResponse<T> {
 
     @SerializedName("query")
+
     private JsonElement mQuery;
-
     private T mObject;
-    private Class<T> type;
-
-    public APIResponse(Class<T> type) {
-        this.type = type;
-    }
 
     public T getObject() {
+        //This turns the query into objects when it's accessed.
         //TODO: This could be cleaned up and optimized a bit
+        //TODO: Use setters & Jackson Converter to make deserialization happen on network thread instead of when response accessed
         if (mQuery != null && mObject == null) {
             JsonObject query = mQuery.getAsJsonObject();
             //Flattening Page ID Keys
