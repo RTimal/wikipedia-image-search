@@ -12,7 +12,7 @@ import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
 
 interface SearchAPI {
-    @GET("/api.php")
+    @GET("api.php")
     Call<APIResponse<List<Page>>> searchForImages(
             @QueryMap Map<String, String> params
     );

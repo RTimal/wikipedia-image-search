@@ -43,7 +43,7 @@ android {
     productFlavors {
         production {
             applicationId "com.rajievtimal.wikipediaimagesearch"
-            buildConfigField 'String', 'HOST', '"https://en.wikipedia.org/w"'
+            buildConfigField 'String', 'HOST', '"https://en.wikipedia.org/w/"'
             signingConfig signingConfigs.release
             dimension "env"
         }

@@ -15,7 +15,7 @@ public final class Constants {
     public static final String GPSLIMIT = "gpslimit";
     //Parameter Values
     public static final String ACTION_VALUE = "query";
-    public static final String PROP_VALUE = "thumbnail";
+    public static final String PROP_VALUE = "pageimages";
     public static final String FORMAT_VALUE = "json";
     public static final String PIPROP_VALUE = "thumbnail";
     public static final String PITHUMBSIZE_VALUE = "512";

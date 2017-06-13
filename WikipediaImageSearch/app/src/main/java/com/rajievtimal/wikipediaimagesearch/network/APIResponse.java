@@ -5,7 +5,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.rajievtimal.wikipediaimagesearch.entities.Page;
 
+import java.lang.reflect.Type;
+import java.util.List;
 import java.util.Map;
 
 //This is our API Response Wrapper. T is the model object
@@ -18,23 +22,29 @@ public class APIResponse<T> {
     private T mObject;
     private Class<T> type;
 
-    public T getObject() {
-        return mObject;
+    public APIResponse(Class<T> type) {
+        this.type = type;
     }
 
-    //Can handle other types of responses here, not just queries
-    public void setQuery(JsonElement query) {
-        JsonObject queryObject = query.getAsJsonObject();
-        JsonArray pageArray = new JsonArray();
-        //Flattening Page Keys
-        if (queryObject.has("pages")) {
-            for (Map.Entry<String, JsonElement> pageMap : queryObject.getAsJsonObject("pages").entrySet()) {
-                JsonElement pageElement = pageMap.getValue();
-                pageArray.add(pageElement);
+    public T getObject() {
+        //TODO: This could be cleaned up and optimized a bit
+        if (mQuery != null && mObject == null) {
+            JsonObject query = mQuery.getAsJsonObject();
+            //Flattening Page ID Keys
+            JsonArray array = new JsonArray();
+            if (query.get("pages") != null) {
+                for (Map.Entry<String, JsonElement> pageMap : query.get("pages").getAsJsonObject().entrySet())
+                    if (pageMap.getValue() != null) {
+                        array.add(pageMap.getValue());
+                    }
             }
 
-            mObject = new Gson().fromJson(pageArray, type);
+            //TODO: Not working with generic Type yet
+            Type listType = new TypeToken<List<Page>>() { // object can be String here
+            }.getType();
+            mObject = new Gson().fromJson(array, listType);
         }
+        return mObject;
     }
 
 }
