@@ -47,7 +47,7 @@
             android:id="@+id/progress"
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:background="@color/really_light_gray"
+            android:background="@color/white"
             android:layout_gravity="center"
             android:visibility="visible"/>
 
