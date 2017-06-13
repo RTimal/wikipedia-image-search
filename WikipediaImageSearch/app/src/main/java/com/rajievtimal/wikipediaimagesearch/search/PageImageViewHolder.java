@@ -43,7 +43,9 @@ public class PageImageViewHolder extends RecyclerView.ViewHolder {
         GlideApp.with(this.itemView.getContext())
                 .load(page.getImageURL())
                 .fallback(R.drawable.page_image_placeholder)
-//                .placeholder(R.mipmap.ic_launcher)
+                .error(R.drawable.page_image_placeholder)
+                .placeholder(R.drawable.page_image_placeholder)
+                .centerCrop()
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {

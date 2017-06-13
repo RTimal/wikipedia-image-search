@@ -1,21 +1,13 @@
 package com.rajievtimal.wikipediaimagesearch.search;
 
 import android.databinding.BindingAdapter;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
 import com.rajievtimal.wikipediaimagesearch.R;
 import com.rajievtimal.wikipediaimagesearch.base.BaseActivity;
 import com.rajievtimal.wikipediaimagesearch.base.ServiceCallback;
@@ -43,7 +35,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         setContentView(R.layout.activity_main);
         mTextMessage = (TextView) findViewById(R.id.message);
         mRecyclerView = (RecyclerView) findViewById(R.id.page_images_recycler_view);
-        mLayoutManager = new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL);
+        mLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mPageImagesAdapter = new PageImagesAdapter(new WeakReference<ImageResponder>(this));
         mRecyclerView.setAdapter(mPageImagesAdapter);
