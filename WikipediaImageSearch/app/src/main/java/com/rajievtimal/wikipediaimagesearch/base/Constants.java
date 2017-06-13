@@ -13,6 +13,8 @@ public final class Constants {
     public static final String GENERATOR = "generator";
     public static final String GPSSEARCH = "gpssearch";
     public static final String GPSLIMIT = "gpslimit";
+    public static final String GRNLIMIT = "grnlimit";
+
     //Parameter Values
     public static final String ACTION_VALUE = "query";
     public static final String PROP_VALUE = "pageimages";
@@ -22,8 +24,9 @@ public final class Constants {
     public static final String PILIMIT_VALUE = "50";
     public static final String GENERATOR_VALUE_PREFIX = "prefixsearch";
     public static final String GENERATOR_VALUE_RANDOM = "random";
-    public static final String GPS_SEARCH_VALUE = "cat";
     public static final String GPS_LIMIT_VALUE = "50";
+    public static final String GRN_LIMIT_VALUE = "50";
+
     String HOST = "https://en.wikipedia.org/w/api.php";
 }
 

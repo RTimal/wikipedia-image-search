@@ -22,9 +22,9 @@ public class APIResponse<T> {
     private T mObject;
 
     public T getObject() {
-        //This turns the query into objects when it's accessed.
+        //This turns the query into objects when it's accessed. Doing some memoization here.
         //TODO: This could be cleaned up and optimized a bit
-        //TODO: Use setters & Jackson Converter to make deserialization happen on network thread instead of when response accessed
+        //TODO: Use setters & Jackson Converter to make deserialization happen on network thread instead of when response accessed from main thread
         if (mQuery != null && mObject == null) {
             JsonObject query = mQuery.getAsJsonObject();
             //Flattening Page ID Keys
@@ -35,9 +35,8 @@ public class APIResponse<T> {
                         array.add(pageMap.getValue());
                     }
             }
-
-            //TODO: Not working with generic Type yet
-            Type listType = new TypeToken<List<Page>>() { // object can be String here
+            //TODO: Not working with generic Type yet.
+            Type listType = new TypeToken<List<Page>>() {
             }.getType();
             mObject = new Gson().fromJson(array, listType);
         }

@@ -26,10 +26,17 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        SearchService.getInstance().searchForImagesWithTerm("cat", new ServiceCallback<List<Page>>() {
+//        SearchService.getInstance().searchForImagesWithTerm("cat", new ServiceCallback<List<Page>>() {
+//            @Override
+//            public void finishedLoading(List<Page> pages, String error) {
+//
+//            }
+//        });
+
+        SearchService.getInstance().searchForRandomImages(new ServiceCallback<List<Page>>() {
             @Override
             public void finishedLoading(List<Page> pages, String error) {
-              //  Log.d("pages", pages.toString());
+
             }
         });
     }

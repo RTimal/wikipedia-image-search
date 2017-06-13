@@ -1,6 +1,5 @@
 package com.rajievtimal.wikipediaimagesearch.search;
 
-
 import com.rajievtimal.wikipediaimagesearch.entities.Page;
 import com.rajievtimal.wikipediaimagesearch.network.APIResponse;
 
@@ -17,4 +16,3 @@ interface SearchAPI {
             @QueryMap Map<String, String> params
     );
 }
-

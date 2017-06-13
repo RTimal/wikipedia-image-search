@@ -17,7 +17,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SearchService extends BaseService {
+class SearchService extends BaseService {
 
     private static final Map<String, String> defaultParams = new HashMap<String, String>();
     private static SearchService mInstance = null;
@@ -38,7 +38,7 @@ public class SearchService extends BaseService {
         defaultParams.put(Constants.PIPROP, Constants.PIPROP_VALUE);
     }
 
-    public static SearchService getInstance() {
+    static SearchService getInstance() {
         if (mInstance == null) {
             mInstance = new SearchService();
         }
@@ -51,9 +51,11 @@ public class SearchService extends BaseService {
         searchImagesWithParams(params, cb);
     }
 
-    public void searchForRandomImages(final ServiceCallback<List<Page>> cb) {
+    void searchForRandomImages(final ServiceCallback<List<Page>> cb) {
         Map<String, String> params = defaultParams;
         params.put(Constants.GENERATOR, Constants.GENERATOR_VALUE_RANDOM);
+        params.put(Constants.GRNLIMIT, Constants.GRN_LIMIT_VALUE);
+        params.remove(Constants.GPSLIMIT);
         searchImagesWithParams(params, cb);
     }
 
