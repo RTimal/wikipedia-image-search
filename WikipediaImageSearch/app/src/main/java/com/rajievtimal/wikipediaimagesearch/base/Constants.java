@@ -1,39 +1,29 @@
 package com.rajievtimal.wikipediaimagesearch.base;
 
-import java.net.InterfaceAddress;
-
-/**
- * Created by rajievtimal on 6/13/17 at 1:52 AM
- * Copyright 2017 Readfeed, Inc.
- */
-
 //TODO: Namespace Constants. E.g. API.Parameters.Values.Generator, API.Parameters.Name.Generator
 
-interface Constants {
-
-    String URL = "https://en.wikipedia.org/w/api.php";
-
+public final class Constants {
     //Parameters Names
-    String ACTION = "action";
-    String PROP = "prop";
-    String FORMAT = "format";
-    String PIPROP = "piprop";
-    String PITHUMBSIZE = "pithumbsize";
-    String PILIMIT = "pilimit";
-    String GENERATOR = "generator";
-    String GPSSEARCH = "gpssearch";
-    String GPSLIMIT = "gpslimit";
-
+    public static final String ACTION = "action";
+    public static final String PROP = "prop";
+    public static final String FORMAT = "format";
+    public static final String PIPROP = "piprop";
+    public static final String PITHUMBSIZE = "pithumbsize";
+    public static final String PILIMIT = "pilimit";
+    public static final String GENERATOR = "generator";
+    public static final String GPSSEARCH = "gpssearch";
+    public static final String GPSLIMIT = "gpslimit";
     //Parameter Values
-    String ACTION_VALUE = "query";
-    String PROP_VALUE = "thumbnail";
-    String FORMAT_VALUE = "json";
-    String PIPROP_VALUE = "thumbnail";
-    String PITHUMBSIZE_VALUE = "512";
-    String PILIMIT_VALUE = "50";
-    String GENERATOR_VALUE_PREFIX = "prefixsearch";
-    String GENERATOR_VALUE_RANDOM = "random";
-    String GPS_SEARCH_VALUE = "cat";
-    String GPS_LIMIT_VALUE = "50";
+    public static final String ACTION_VALUE = "query";
+    public static final String PROP_VALUE = "thumbnail";
+    public static final String FORMAT_VALUE = "json";
+    public static final String PIPROP_VALUE = "thumbnail";
+    public static final String PITHUMBSIZE_VALUE = "512";
+    public static final String PILIMIT_VALUE = "50";
+    public static final String GENERATOR_VALUE_PREFIX = "prefixsearch";
+    public static final String GENERATOR_VALUE_RANDOM = "random";
+    public static final String GPS_SEARCH_VALUE = "cat";
+    public static final String GPS_LIMIT_VALUE = "50";
+    String HOST = "https://en.wikipedia.org/w/api.php";
 }
 
