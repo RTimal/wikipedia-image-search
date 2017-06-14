@@ -3,7 +3,7 @@
 ### Features
 
 - Discover images on Wikipedia.
-- Search Wikipedia for images.
+- Search Wikipedia for images by page name.
 - Tap on an image to guess what it's about and check your answer.
 - Visit Wikipedia page from image details.
 
