@@ -22,9 +22,6 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
 
     private static final String PAGE_PARAM = "com.rajievtima.wikipediaimagesearch.entities.page:Param";
     Page mCurrentPage;
-    private ImageView mImageView;
-    private TextView mQuestionTextView;
-    private Button mRevealbutton;
     private TextView mAnswer;
     private Button mGotoWebsite;
 
@@ -69,10 +66,9 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
         });
 
         builder.setView(customDialogView);
-
-        mImageView = (ImageView) customDialogView.findViewById(R.id.image_view);
-        mQuestionTextView = (TextView) customDialogView.findViewById(R.id.question);
-        mRevealbutton = (Button) customDialogView.findViewById(R.id.reveal_button);
+        
+        ImageView imageView = (ImageView) customDialogView.findViewById(R.id.image_view);
+        Button revealbutton = (Button) customDialogView.findViewById(R.id.reveal_button);
         mAnswer = (TextView) customDialogView.findViewById(R.id.answer);
         mGotoWebsite = (Button) customDialogView.findViewById(R.id.go_to_website_button);
 
@@ -81,12 +77,12 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
                     .load(mCurrentPage.getImageURL())
                     .fallback(R.drawable.page_image_placeholder)
                     .centerCrop()
-                    .into(mImageView);
+                    .into(imageView);
 
             mAnswer.setText(mCurrentPage.getTitle());
         }
 
-        mRevealbutton.setOnClickListener(new View.OnClickListener() {
+        revealbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAnswer.setVisibility(View.VISIBLE);

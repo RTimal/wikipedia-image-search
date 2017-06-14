@@ -71,25 +71,26 @@ public class MainActivity extends BaseActivity implements ImageResponder {
             @Override
             public void finishedLoading(List<Page> pages, String error) {
                 //TODO: handle errors
-                loadPageImages(pages, searchTerm, false);
+                showPageImages(pages, searchTerm, false);
             }
         });
     }
 
     void searchForRandomImages() {
+        //Not truly random, uses alphabet to get letter to search for
         int randomIndex = new Random().nextInt(mAlphabet.length);
         final char letter = mAlphabet[randomIndex];
         SearchService.getInstance().searchForImagesWithTerm(String.valueOf(letter), new ServiceCallback<List<Page>>() {
             @Override
             public void finishedLoading(List<Page> pages, String error) {
                 //TODO: Handle errors
-                loadPageImages(pages, String.valueOf(letter), true);
+                showPageImages(pages, String.valueOf(letter), true);
             }
         });
     }
 
     //TODO: this could bea bit more readable, some code duplicated
-    void loadPageImages(List<Page> pages, String searchTerm, Boolean random) {
+    void showPageImages(List<Page> pages, String searchTerm, Boolean random) {
         if (!random && !searchTerm.equals(mSearchTerm)) {
             //This is for network race conditions, current term needs to match term that the http response is for
             return;
@@ -97,8 +98,8 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         if (pages != null && pages.size() > 0) {
             mPageImagesAdapter.clearItems();
             mRecyclerView.getRecycledViewPool().clear();
-
             mPageImagesAdapter.addItems(pages);
+
             if (random) {
                 String message = getString(R.string.discover_images_text) + " " + searchTerm.toUpperCase();
                 mTextMessage.setText(message);
@@ -106,27 +107,21 @@ public class MainActivity extends BaseActivity implements ImageResponder {
                 String message = getString(R.string.search_results_for_string) + " " + "\"" + searchTerm + "\"";
                 mTextMessage.setText(message);
             }
-        } else {
-            if (searchTerm.length() > 0) {
-                String message = getString(R.string.no_results)  + " "  + "\"" + searchTerm + "\"";
-                mTextMessage.setText(message);
-                mPageImagesAdapter.clearItems();
-                mRecyclerView.getRecycledViewPool().clear();
-            } else {
-                searchForRandomImages();
-            }
+
+        } else if (searchTerm.length() > 0) {
+            String message = getString(R.string.no_results) + " " + "\"" + searchTerm + "\"";
+            mTextMessage.setText(message);
+            mPageImagesAdapter.clearItems();
+            mRecyclerView.getRecycledViewPool().clear();
         }
     }
 
     private void setupSearchView() {
-
         SearchView searchView = (SearchView) findViewById(R.id.search_view);
-        searchView.setFocusable(true);
-        searchView.setIconified(false);
+        searchView.setFocusable(false);
         searchView.setIconifiedByDefault(false);
-        searchView.requestFocusFromTouch();
+        searchView.clearFocus();
         searchView.setQueryHint("Search for images");
-        searchView.setActivated(true);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
