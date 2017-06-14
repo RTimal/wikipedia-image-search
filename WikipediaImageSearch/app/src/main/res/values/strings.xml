@@ -15,4 +15,5 @@
     <string name="answer">Answer</string>
     <string name="go_to_website">Go to Wikipedia Page</string>
     <string name="no_results">There are no results for</string>
+    <string name="search_for_images_hint">Search for images</string>
 </resources>

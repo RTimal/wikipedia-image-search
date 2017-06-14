@@ -126,7 +126,7 @@ public class MainActivity extends BaseActivity implements PageImageTapResponder 
         searchView.setFocusable(false);
         searchView.setIconifiedByDefault(false);
         searchView.clearFocus();
-        searchView.setQueryHint("Search for images");
+        searchView.setQueryHint(getString(R.string.search_for_images_hint));
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
