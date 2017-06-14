@@ -37,8 +37,9 @@
             android:gravity="center"
             android:text="@string/what_is_this_picture_of"
             android:textColor="@color/black"
+            android:textSize="16sp"
             android:visibility="visible"
-            tools:text="What's the title of this picture?"/>
+            tools:text="Wath's in this picture?"/>
 
         <Button
             android:id="@+id/reveal_button"

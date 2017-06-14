@@ -98,7 +98,7 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
             @Override
             public void onClick(View v) {
                 if (mCurrentPage != null) {
-                    showURL(mCurrentPage.getImageURL());
+                    showURL(mCurrentPage.getPageUrl());
                 }
             }
         });

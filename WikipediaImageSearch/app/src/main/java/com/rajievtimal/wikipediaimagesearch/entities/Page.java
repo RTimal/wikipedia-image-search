@@ -19,7 +19,11 @@ public class Page implements Serializable {
     }
 
     public String getPageUrl() {
-        return (mThumbnail != null ? mThumbnail.getSourceURL() : null);
+        String url = "http://en.wikipedia.org/?curid=";
+        if (mPageId != null) {
+            url += mPageId;
+        }
+        return url;
     }
 
     public String getTitle() {

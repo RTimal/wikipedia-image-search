@@ -144,6 +144,6 @@ public class MainActivity extends BaseActivity implements ImageResponder {
     @Override
     public void didClickOnPageImage(Page page) {
         DialogFragment imageDetailsFragment = ImageDetailsFragment.create(page);
-        imageDetailsFragment.show(getSupportFragmentManager(), "");
+        imageDetailsFragment.show(getSupportFragmentManager(), "page image details");
     }
 }
