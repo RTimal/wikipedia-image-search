@@ -95,51 +95,24 @@ public class MainActivity extends BaseActivity implements ImageResponder {
                 String message = getString(R.string.discover_images_text) + " " + searchTerm.toUpperCase();
                 mTextMessage.setText(message);
             } else {
-                String message = getString(R.string.search_results_for_string) + searchTerm.toUpperCase();
+                String message = getString(R.string.search_results_for_string) + " " + searchTerm.toUpperCase();
                 mTextMessage.setText(message);
             }
         } else {
-            String message = "There are no results for" + '"' + mSearchTerm + '"' + ". Please try again.";
+            String message = "There are no results for " + '"' + mSearchTerm + '"' + ". Please try again.";
             mTextMessage.setText(message);
         }
     }
 
     private void setupSearchView() {
+
         mSearchView = (SearchView) findViewById(R.id.search_view);
         mSearchView.setFocusable(true);
-        mSearchView.setIconified(false);
-        mSearchView.setIconifiedByDefault(false);
         mSearchView.requestFocusFromTouch();
-        mSearchView.setMaxWidth(100000000);
         mSearchView.setQueryHint("Search for images");
         final LinearLayout searchBar = (LinearLayout) mSearchView.findViewById(R.id.search_bar);
         searchBar.setLayoutTransition(new LayoutTransition());
         mSearchView.setActivated(true);
-        mSearchViewEditText = (EditText) mSearchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
-//        changeSearchViewTextColor(searchView);
-
-        try {
-            Field mCursorDrawableRes = TextView.class.getDeclaredField("mCursorDrawableRes");
-            mCursorDrawableRes.setAccessible(true);
-//            mCursorDrawableRes.set(searchViewEditText, R.drawable.white_cursor); // 0: @null (automatic), or any drawable of yours.
-//            mSearchView.setHintTextColor(getResources().getColor(R.color.linkedingray));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-//
-//        if (!TextUtils.isEmpty(author)) {
-//            searchViewEditText.setText(author);
-//            searchViewEditText.setSelection(author.length());
-//            currentTerm = "inauthor:" + "\"" + author + "\"";
-//            searchWithTerm();
-//            searchView.clearFocus();
-//        } else if (!TextUtils.isEmpty(isbn)) {
-//            searchViewEditText.setText(isbn);
-//            searchViewEditText.setSelection(isbn.length());
-//            currentTerm = isbn;
-//            searchWithTerm();
-//            searchView.clearFocus();
-//        }
 
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
