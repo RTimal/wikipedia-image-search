@@ -29,3 +29,11 @@
 [AndroidStudio]: <http://developers.android.com>
 [Glide]: <https://github.com/bumptech/glide>
 [Retrofit]: <https://square.github.io/retrofit/>
+
+
+### Screenshots
+
+![Discovery](/Screenshots/Screenshot1.png?raw=true "Discovery")
+![Search](/Screenshots/Screenshot2.png?raw=true "Search")
+![Questio](/Screenshots/Screenshot3.png?raw=true "Question")
+![Answer](/Screenshots/Screenshot4.png?raw=true "Answer")
