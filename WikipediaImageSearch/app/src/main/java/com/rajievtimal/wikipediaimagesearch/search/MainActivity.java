@@ -95,7 +95,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
                 String message = getString(R.string.discover_images_text) + " " + searchTerm.toUpperCase();
                 mTextMessage.setText(message);
             } else {
-                String message = getString(R.string.search_results_for_string) + " " + searchTerm.toUpperCase();
+                String message = getString(R.string.search_results_for_string) + " " +  +'"' + searchTerm + '"';
                 mTextMessage.setText(message);
             }
         } else {
@@ -108,6 +108,8 @@ public class MainActivity extends BaseActivity implements ImageResponder {
 
         mSearchView = (SearchView) findViewById(R.id.search_view);
         mSearchView.setFocusable(true);
+        mSearchView.setIconified(false);
+        mSearchView.setIconifiedByDefault(false);
         mSearchView.requestFocusFromTouch();
         mSearchView.setQueryHint("Search for images");
         final LinearLayout searchBar = (LinearLayout) mSearchView.findViewById(R.id.search_bar);
