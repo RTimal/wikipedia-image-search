@@ -17,7 +17,7 @@ Features
 
 ## Setup
 * Build using gradle and Android Studio 2.3.3
-* Production is the only product flavor currently, with build variants release and debug 
+* Production is the only product flavor, with debug and release build variants.
 * Debug key is app/debug.jks
 * Release key is app/release.jks
 
