@@ -1,6 +1,6 @@
 ### Wikipedia Image Search Application
 
-Features
+### Features
 
 - Discover new images on Wikipedia
 - Search Wikipedia for images
@@ -21,7 +21,7 @@ Features
 * Debug key is app/debug.jks
 * Release key is app/release.jks
 
-## Todos
+###  Todos
 - Add .idea to .gitignore
 - See Todo's in Java code.
 - Keys are not supposed to be in the github repo, they are just here for demo purposes.
