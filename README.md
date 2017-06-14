@@ -32,7 +32,7 @@
 [Android Studio]: <http://developers.android.com>
 [Glide]: <https://github.com/bumptech/glide>
 [Retrofit]: <https://square.github.io/retrofit/>
-[Wikipedia Ap]: <https://en.wikipedia.org/w/api.php>
+[Wikipedia Api]: <https://en.wikipedia.org/w/api.php>
 
 
 ### Screenshots
