@@ -1,6 +1,6 @@
 ### Wikipedia Image Search for Android
 
-### Feature
+### Features
 
 - Discover images on Wikipedia
 - Search Wikipedia for images
