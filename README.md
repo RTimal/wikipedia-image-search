@@ -1,8 +1,8 @@
-### Wikipedia Image Search Application
+### Wikipedia Image Search for Android
 
-### Features
+### Feature
 
-- Discover new images on Wikipedia
+- Discover images on Wikipedia
 - Search Wikipedia for images
 - Tap on an image to guess what it's about and check your answer.
 - Visit Wikipedia page from image details
