@@ -44,7 +44,7 @@ class SearchService extends BaseService {
         return mInstance;
     }
 
-    public void searchForImagesWithTerm(String term, final ServiceCallback<List<Page>> cb) {
+    void searchForImagesWithTerm(String term, final ServiceCallback<List<Page>> cb) {
         Map<String, String> params = defaultParams;
         params.put(Constants.GPSSEARCH, term);
         searchImagesWithParams(params, cb);

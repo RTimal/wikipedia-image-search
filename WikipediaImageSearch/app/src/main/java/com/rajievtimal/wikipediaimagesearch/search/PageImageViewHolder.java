@@ -21,25 +21,30 @@ import java.lang.ref.WeakReference;
 class PageImageViewHolder extends RecyclerView.ViewHolder {
 
     private final ItemPageImageBinding binding;
+    View mView;
     private ImageView mPageImageView;
     private ProgressBar mProgressBar;
     private Page mPage;
-    View view;
     private Integer position;
     private WeakReference<ImageResponder> mResponder;
 
-    public PageImageViewHolder(final View view, final ItemPageImageBinding binding, WeakReference<ImageResponder> responder) {
+    PageImageViewHolder(final View view, final ItemPageImageBinding binding, WeakReference<ImageResponder> responder) {
         super(view);
-        this.view = view;
+        this.mView = view;
         this.binding = binding;
         mPageImageView = (ImageView) view.findViewById(R.id.page_image_view);
         this.mResponder = responder;
         this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
-        // pageImageView.setOnClickListener(view1 -> mResponder.get().didClickOnView(view1, position));
+        mPageImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mResponder.get().didClickOnPageImage(mPage);
+            }
+        });
     }
 
     @UiThread
-    public void bind(final Page page, Integer position) {
+    void bind(final Page page, Integer position) {
         mPage = page;
         GlideApp.with(this.itemView.getContext())
                 .load(page.getImageURL())

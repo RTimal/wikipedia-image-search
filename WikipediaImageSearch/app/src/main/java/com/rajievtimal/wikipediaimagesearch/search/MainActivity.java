@@ -2,11 +2,11 @@ package com.rajievtimal.wikipediaimagesearch.search;
 
 import android.databinding.BindingAdapter;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +14,7 @@ import com.rajievtimal.wikipediaimagesearch.R;
 import com.rajievtimal.wikipediaimagesearch.base.BaseActivity;
 import com.rajievtimal.wikipediaimagesearch.base.ServiceCallback;
 import com.rajievtimal.wikipediaimagesearch.entities.Page;
+import com.rajievtimal.wikipediaimagesearch.imagedetails.ImageDetailsFragment;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -32,7 +33,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
 
     @BindingAdapter({"bind:imageUrl"})
     public static void loadImage(final ImageView view, final String url) {
-
+        //Not doing anything with this right now
     }
 
     @Override
@@ -89,7 +90,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
 
     void loadPageImages(List<Page> pages, String searchTerm, Boolean random) {
         if (!random && !searchTerm.equals(mSearchTerm)) {
-            //This is for network race conditions, current term needs to match term of called from http response.
+            //This is for network race conditions, current term needs to match term that the http response is for
             return;
         }
         if (pages != null && pages.size() > 0) {
@@ -141,7 +142,8 @@ public class MainActivity extends BaseActivity implements ImageResponder {
     }
 
     @Override
-    public void didClickOnPageImage(View view, int position) {
-        //Show dialog
+    public void didClickOnPageImage(Page page) {
+        DialogFragment imageDetailsFragment = ImageDetailsFragment.create(page);
+        imageDetailsFragment.show(getSupportFragmentManager(), "");
     }
 }

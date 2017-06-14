@@ -1,7 +1,8 @@
 package com.rajievtimal.wikipediaimagesearch.search;
 
-import android.view.View;
+
+import com.rajievtimal.wikipediaimagesearch.entities.Page;
 
 public interface ImageResponder {
-    void didClickOnPageImage(View view, int position);
+    void didClickOnPageImage(Page page);
 }
