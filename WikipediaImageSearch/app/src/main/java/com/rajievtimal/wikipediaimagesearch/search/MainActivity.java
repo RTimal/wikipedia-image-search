@@ -1,6 +1,5 @@
 package com.rajievtimal.wikipediaimagesearch.search;
 
-import android.animation.LayoutTransition;
 import android.databinding.BindingAdapter;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -8,9 +7,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.rajievtimal.wikipediaimagesearch.R;
@@ -19,7 +16,6 @@ import com.rajievtimal.wikipediaimagesearch.base.ServiceCallback;
 import com.rajievtimal.wikipediaimagesearch.entities.Page;
 
 import java.lang.ref.WeakReference;
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Random;
 
@@ -32,9 +28,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
     private StaggeredGridLayoutManager mLayoutManager;
     private PageImagesAdapter mPageImagesAdapter;
     private String mSearchTerm = "";
-    private char[] mAlphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();    //TODO: Use this
-    private SearchView mSearchView;
-    private EditText mSearchViewEditText;
+    private char[] mAlphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();    //TODO: Use this to generate random images [a-z] to populate discoveryf
 
     @BindingAdapter({"bind:imageUrl"})
     public static void loadImage(final ImageView view, final String url) {
@@ -47,7 +41,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         setContentView(R.layout.activity_main);
         mTextMessage = (TextView) findViewById(R.id.message);
         mRecyclerView = (RecyclerView) findViewById(R.id.page_images_recycler_view);
-        mRecyclerView.setItemAnimator(new SlideInUpAnimator());
+//        mRecyclerView.setItemAnimator(new SlideInUpAnimator());
         mLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mPageImagesAdapter = new PageImagesAdapter(new WeakReference<ImageResponder>(this));
@@ -62,6 +56,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
     @Override
     protected void onResume() {
         super.onResume();
+        //Search for some random images if there is no search term
         if (mSearchTerm.length() == 0) {
             searchForRandomImages();
         }
@@ -71,7 +66,8 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         SearchService.getInstance().searchForImagesWithTerm(searchTerm, new ServiceCallback<List<Page>>() {
             @Override
             public void finishedLoading(List<Page> pages, String error) {
-                setImages(pages, searchTerm, false);
+                //TODO: handle errors
+                loadPageImages(pages, searchTerm, false);
             }
         });
     }
@@ -82,12 +78,13 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         SearchService.getInstance().searchForImagesWithTerm(String.valueOf(letter), new ServiceCallback<List<Page>>() {
             @Override
             public void finishedLoading(List<Page> pages, String error) {
-                setImages(pages, String.valueOf(letter), true);
+                //TODO: Handle errors
+                loadPageImages(pages, String.valueOf(letter), true);
             }
         });
     }
 
-    void setImages(List<Page> pages, String searchTerm, Boolean random) {
+    void loadPageImages(List<Page> pages, String searchTerm, Boolean random) {
         if (pages != null && pages.size() > 0) {
             mPageImagesAdapter.clearItems();
             mPageImagesAdapter.addItems(pages);
@@ -95,28 +92,31 @@ public class MainActivity extends BaseActivity implements ImageResponder {
                 String message = getString(R.string.discover_images_text) + " " + searchTerm.toUpperCase();
                 mTextMessage.setText(message);
             } else {
-                String message = getString(R.string.search_results_for_string) + " " +  +'"' + searchTerm + '"';
+                String message = getString(R.string.search_results_for_string) + " " + searchTerm;
                 mTextMessage.setText(message);
             }
         } else {
-            String message = "There are no results for " + '"' + mSearchTerm + '"' + ". Please try again.";
-            mTextMessage.setText(message);
+            if (searchTerm.length() > 0) {
+                String message = "There are no results for " + '"' + mSearchTerm + '"' + ". Please try again.";
+                mTextMessage.setText(message);
+                mPageImagesAdapter.clearItems();
+            } else {
+                searchForRandomImages();
+            }
         }
     }
 
     private void setupSearchView() {
+        SearchView searchView = (SearchView) findViewById(R.id.search_view);
+        searchView.setFocusable(true);
+        searchView.setIconified(false);
+        searchView.setIconifiedByDefault(false);
+        searchView.requestFocusFromTouch();
+        searchView.setQueryHint("Search for images");
 
-        mSearchView = (SearchView) findViewById(R.id.search_view);
-        mSearchView.setFocusable(true);
-        mSearchView.setIconified(false);
-        mSearchView.setIconifiedByDefault(false);
-        mSearchView.requestFocusFromTouch();
-        mSearchView.setQueryHint("Search for images");
-        final LinearLayout searchBar = (LinearLayout) mSearchView.findViewById(R.id.search_bar);
-        searchBar.setLayoutTransition(new LayoutTransition());
-        mSearchView.setActivated(true);
+        searchView.setActivated(true);
 
-        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 mSearchTerm = query;
