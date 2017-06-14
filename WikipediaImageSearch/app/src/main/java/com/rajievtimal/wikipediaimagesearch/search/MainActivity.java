@@ -19,7 +19,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Random;
 
-import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
+import jp.wasabeef.recyclerview.animators.FadeInDownAnimator;
 
 public class MainActivity extends BaseActivity implements ImageResponder {
 
@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         setContentView(R.layout.activity_main);
         mTextMessage = (TextView) findViewById(R.id.message);
         mRecyclerView = (RecyclerView) findViewById(R.id.page_images_recycler_view);
-//        mRecyclerView.setItemAnimator(new SlideInUpAnimator());
+        mRecyclerView.setItemAnimator(new FadeInDownAnimator());
         mLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mPageImagesAdapter = new PageImagesAdapter(new WeakReference<ImageResponder>(this));
@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
     }
 
     void loadPageImages(List<Page> pages, String searchTerm, Boolean random) {
-        if(!random && !searchTerm.equals(mSearchTerm)) {
+        if (!random && !searchTerm.equals(mSearchTerm)) {
             //This is for network race conditions, current term needs to match term of called from http response.
             return;
         }
@@ -111,13 +111,13 @@ public class MainActivity extends BaseActivity implements ImageResponder {
     }
 
     private void setupSearchView() {
+
         SearchView searchView = (SearchView) findViewById(R.id.search_view);
         searchView.setFocusable(true);
         searchView.setIconified(false);
         searchView.setIconifiedByDefault(false);
         searchView.requestFocusFromTouch();
         searchView.setQueryHint("Search for images");
-
         searchView.setActivated(true);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

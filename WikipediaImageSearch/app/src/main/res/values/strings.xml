@@ -8,4 +8,5 @@
     <string name="discover_images_text">Discover Images - </string>
     <string name="search_results_for_string">Search results for </string>
     <string name="search_for_images">""</string>
+    <string name="image">image</string>
 </resources>

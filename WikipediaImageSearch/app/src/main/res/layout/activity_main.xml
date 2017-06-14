@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context="com.rajievtimal.wikipediaimagesearch.search.MainActivity">f
+    tools:context="com.rajievtimal.wikipediaimagesearch.search.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -25,6 +25,13 @@
             android:background="?attr/colorPrimary"
             app:titleTextColor="@color/black"
             >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:src="@drawable/ic_launcher"
+                />
 
             <android.support.v7.widget.SearchView
                 android:id="@+id/search_view"
@@ -52,8 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/message"
-        android:background="@color/white"
-        android:padding="8dp">
+        android:background="@color/white">
     </android.support.v7.widget.RecyclerView>
 
 

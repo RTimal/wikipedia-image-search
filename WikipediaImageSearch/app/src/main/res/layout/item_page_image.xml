@@ -39,9 +39,9 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
+            android:contentDescription="@string/image"
             android:scaleType="centerCrop"
-            app:imageUrl="@{page.getImageURL}"
-            />
+            app:imageUrl="@{page.getImageURL}"/>
 
         <ProgressBar
             android:id="@+id/progress"
