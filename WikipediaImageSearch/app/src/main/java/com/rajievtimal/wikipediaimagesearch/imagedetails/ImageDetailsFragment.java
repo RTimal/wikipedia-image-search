@@ -65,7 +65,7 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
         builder.setView(customDialogView);
 
         ImageView imageView = (ImageView) customDialogView.findViewById(R.id.image_view);
-        Button revealbutton = (Button) customDialogView.findViewById(R.id.reveal_button);
+        final Button revealbutton = (Button) customDialogView.findViewById(R.id.reveal_button);
         mAnswer = (TextView) customDialogView.findViewById(R.id.answer);
         mGotoWebsite = (Button) customDialogView.findViewById(R.id.go_to_website_button);
 
@@ -84,6 +84,7 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
             public void onClick(View v) {
                 mAnswer.setVisibility(View.VISIBLE);
                 mGotoWebsite.setVisibility(View.VISIBLE);
+                revealbutton.setEnabled(false);
             }
         });
 
