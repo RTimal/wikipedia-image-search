@@ -23,26 +23,26 @@ public class PageImagesAdapter extends RecyclerView.Adapter<PageImageViewHolder>
         this.mResponder = responder;
     }
 
-    public Page getItem(int position) {
-        return this.mPages.get(position);
-    }
-
-    @UiThread
-    public void addItem(final Page item) {
-        this.mPages.add(item);
-        this.dataSetChanged();
-    }
 
     @UiThread
     public void addItems(final List<Page> pages) {
         this.mPages.addAll(pages);
-        this.dataSetChanged();
+        this.notifyItemRangeInserted(0, pages.size());
     }
 
     @UiThread
     public void clearItems() {
+        int prevsize = 0;
+
+        if (mPages != null) {
+            prevsize = mPages.size();
+        }
+
         this.mPages.clear();
-        this.dataSetChanged();
+
+        if (mPages != null) {
+            this.notifyItemRangeRemoved(0, prevsize);
+        }
     }
 
     public PageImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

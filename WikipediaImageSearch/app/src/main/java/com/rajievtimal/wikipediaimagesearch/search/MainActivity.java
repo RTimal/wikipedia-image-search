@@ -16,6 +16,11 @@ import com.rajievtimal.wikipediaimagesearch.entities.Page;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.animators.FadeInLeftAnimator;
+import jp.wasabeef.recyclerview.animators.FlipInBottomXAnimator;
+import jp.wasabeef.recyclerview.animators.FlipInTopXAnimator;
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
+
 public class MainActivity extends BaseActivity implements ImageResponder {
 
     private TextView mTextMessage;
@@ -35,6 +40,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         setContentView(R.layout.activity_main);
         mTextMessage = (TextView) findViewById(R.id.message);
         mRecyclerView = (RecyclerView) findViewById(R.id.page_images_recycler_view);
+        mRecyclerView.setItemAnimator(new SlideInUpAnimator());
         mLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mPageImagesAdapter = new PageImagesAdapter(new WeakReference<ImageResponder>(this));
