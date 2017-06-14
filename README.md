@@ -35,3 +35,20 @@
 [Retrofit]: <https://square.github.io/retrofit/>
 [Wikipedia API]: <https://en.wikipedia.org/w/api.php>
 
+
+### Screenshots
+<br><br>
+![Discovery](/screenshots/Screenshot1.png?raw=true "Discovery")
+<br><br>
+<br><br>
+![Search](/screenshots/Screenshot2.png?raw=true "Search")
+<br><br>
+<br><br>
+![Question](/screenshots/Screenshot3.png?raw=true "Question")
+<br><br>
+<br><br>
+![Answer](/screenshots/Screenshot4.png?raw=true "Answer")
+<br><br>
+<br><br>
+
+
