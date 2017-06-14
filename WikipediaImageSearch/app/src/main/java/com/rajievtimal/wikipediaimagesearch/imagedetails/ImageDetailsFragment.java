@@ -20,7 +20,7 @@ import com.rajievtimal.wikipediaimagesearch.search.GlideApp;
 
 public class ImageDetailsFragment extends android.support.v4.app.DialogFragment {
 
-    private static final String PAGE_PARAM = "com.rajievtima.wikipediaimagesearch.entities.page:Param";
+    private static final String PAGE_PARAM = "com.rajievtimal.wikipediaimagesearch.entities.page:Param";
     Page mCurrentPage;
     private TextView mAnswer;
     private Button mGotoWebsite;

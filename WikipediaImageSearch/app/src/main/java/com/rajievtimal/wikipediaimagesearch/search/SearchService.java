@@ -25,7 +25,7 @@ class SearchService extends BaseService {
 
     private SearchService() {
         mSearchAPI = mRetrofit.create(SearchAPI.class);
-        //Initialize default params;
+        //Set default params;
         //TODO: Generate params in another class
         defaultParams.put(Constants.ACTION, Constants.ACTION_VALUE);
         defaultParams.put(Constants.FORMAT, Constants.FORMAT_VALUE);
