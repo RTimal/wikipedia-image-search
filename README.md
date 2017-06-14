@@ -3,8 +3,9 @@
 Features
 
 - Discover new images on Wikipedia
-- Search for images
-- Guess what an image is about and check your answer.
+- Search Wikipedia for images
+- Tap on an image to guess what it's about and check your answer.
+- Visit Wikipedia page from image details
 
 ### Tech
 * [AndroidStudio] - Version 2.3.3
