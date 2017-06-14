@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
     private StaggeredGridLayoutManager mLayoutManager;
     private PageImagesAdapter mPageImagesAdapter;
     private String mSearchTerm = "";
-    private char[] mAlphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();    //TODO: Use this to generate random images [a-z] to populate discoveryf
+    private char[] mAlphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();    //Using this to generate random images [a-z] to populate discovery
 
     @BindingAdapter({"bind:imageUrl"})
     public static void loadImage(final ImageView view, final String url) {
@@ -62,11 +62,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         //Search for some random images if there is no search term
         if (mSearchTerm.length() == 0) {
             //Refresh random images
-            mPageImagesAdapter.clearItems();
             searchForRandomImages();
-        } else {
-            //Refresh search results
-            searchForImagesWithTerm(mSearchTerm);
         }
     }
 
@@ -107,16 +103,15 @@ public class MainActivity extends BaseActivity implements ImageResponder {
                 String message = getString(R.string.discover_images_text) + " " + searchTerm.toUpperCase();
                 mTextMessage.setText(message);
             } else {
-                String message = getString(R.string.search_results_for_string) + " " + '"' + searchTerm + +'"';
+                String message = getString(R.string.search_results_for_string) + " " + "\"" + searchTerm + "\"";
                 mTextMessage.setText(message);
             }
         } else {
             if (searchTerm.length() > 0) {
-                String message = getString(R.string.no_results)  + " " + '"' + searchTerm + +'"';
+                String message = getString(R.string.no_results)  + " "  + "\"" + searchTerm + "\"";
                 mTextMessage.setText(message);
                 mPageImagesAdapter.clearItems();
                 mRecyclerView.getRecycledViewPool().clear();
-
             } else {
                 searchForRandomImages();
             }
