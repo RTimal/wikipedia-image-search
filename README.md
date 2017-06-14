@@ -33,7 +33,6 @@
 
 ### Screenshots
 <br><br>
-<br><br>
 ![Discovery](/Screenshots/Screenshot1.png?raw=true "Discovery")
 <br><br>
 <br><br>
