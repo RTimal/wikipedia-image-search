@@ -85,6 +85,10 @@ public class MainActivity extends BaseActivity implements ImageResponder {
     }
 
     void loadPageImages(List<Page> pages, String searchTerm, Boolean random) {
+        if(!searchTerm.equals(mSearchTerm)) {
+            //This is for network race conditions, current term needs to match term of called from http response.
+            return;
+        }
         if (pages != null && pages.size() > 0) {
             mPageImagesAdapter.clearItems();
             mPageImagesAdapter.addItems(pages);
