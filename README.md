@@ -24,7 +24,7 @@
 ###  Todos
 - Add .idea to .gitignore
 - See Todo's in Java code.
-- Keys are not supposed to be in the github repo, they are just here for demo purposes.
+- Keys are not supposed to be in the github repo
 
 [AndroidStudio]: <http://developers.android.com>
 [Glide]: <https://github.com/bumptech/glide>
@@ -32,7 +32,6 @@
 
 
 ### Screenshots
-
 <br><br>
 <br><br>
 ![Discovery](/Screenshots/Screenshot1.png?raw=true "Discovery")
