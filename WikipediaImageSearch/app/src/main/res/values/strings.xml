@@ -14,4 +14,5 @@
     <string name="what_is_this_picture_of">Who or what is this picture about?</string>
     <string name="answer">Answer</string>
     <string name="go_to_website">Go to Wikipedia Page</string>
+    <string name="no_results">There are no results for</string>
 </resources>

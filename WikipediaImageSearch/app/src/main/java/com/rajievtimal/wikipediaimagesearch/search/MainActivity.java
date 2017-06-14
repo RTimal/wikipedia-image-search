@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
 
     @BindingAdapter({"bind:imageUrl"})
     public static void loadImage(final ImageView view, final String url) {
-        //Not doing anything with this right now
+        //Not doing anything with this right now. For future use
     }
 
     @Override
@@ -107,12 +107,12 @@ public class MainActivity extends BaseActivity implements ImageResponder {
                 String message = getString(R.string.discover_images_text) + " " + searchTerm.toUpperCase();
                 mTextMessage.setText(message);
             } else {
-                String message = getString(R.string.search_results_for_string) + " " + '"' + searchTerm + + '"';
+                String message = getString(R.string.search_results_for_string) + " " + '"' + searchTerm + +'"';
                 mTextMessage.setText(message);
             }
         } else {
             if (searchTerm.length() > 0) {
-                String message = "There are no results for " + '"' + mSearchTerm + '"' + ". Please try again.";
+                String message = getString(R.string.no_results)  + " " + '"' + searchTerm + +'"';
                 mTextMessage.setText(message);
                 mPageImagesAdapter.clearItems();
                 mRecyclerView.getRecycledViewPool().clear();
