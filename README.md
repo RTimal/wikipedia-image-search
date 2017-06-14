@@ -2,10 +2,10 @@
 
 ### Features
 
-- Discover images on Wikipedia
-- Search Wikipedia for images
+- Discover images on Wikipedia.
+- Search Wikipedia for images.
 - Tap on an image to guess what it's about and check your answer.
-- Visit Wikipedia page from image details
+- Visit Wikipedia page from image details.
 
 ### Tech
 * [Wikipedia API]
