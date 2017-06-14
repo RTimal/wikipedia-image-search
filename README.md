@@ -11,7 +11,7 @@ Features
 * [AndroidStudio] - Version 2.3.3
 * [Retrofit] - Latest version of Javascript
 * [Glide] - Fast image loading on Android
-* Supports Android API level 16+
+* Supports Android API level 16+ (Android 4.1 and up)
 * targetSdkVersion 25
 * compileSdkVersion 25
 
