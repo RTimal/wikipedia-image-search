@@ -1,4 +1,6 @@
 package com.rajievtimal.wikipediaimagesearch.search;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.annotation.UiThread;
@@ -32,7 +34,7 @@ class PageImageViewHolder extends RecyclerView.ViewHolder {
         this.binding = binding;
         mPageImageView = (ImageView) view.findViewById(R.id.page_image_view);
         this.mResponder = responder;
-        this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
+       // this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         mPageImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,13 +52,13 @@ class PageImageViewHolder extends RecyclerView.ViewHolder {
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        mProgressBar.setVisibility(View.GONE);
+                        //mProgressBar.setVisibility(View.GONE);
                         return false;
                     }
 
                     @Override
                     public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        mProgressBar.setVisibility(View.GONE);
+                        //mProgressBar.setVisibility(View.GONE);
                         return false;
                     }
                 })

@@ -67,13 +67,18 @@ public class MainActivity extends BaseActivity implements PageImageTapResponder 
     }
 
     void searchForImagesWithTerm(final String searchTerm) {
-        SearchService.getInstance().searchForImagesWithTerm(searchTerm, new ServiceCallback<List<Page>>() {
-            @Override
-            public void finishedLoading(List<Page> pages, String error) {
-                //TODO: handle errors
-                showPageImages(pages, searchTerm, false);
-            }
-        });
+        if (searchTerm.length() > 0) {
+            SearchService.getInstance().searchForImagesWithTerm(searchTerm, new ServiceCallback<List<Page>>() {
+                @Override
+                public void finishedLoading(List<Page> pages, String error) {
+                    //TODO: handle errors
+                    showPageImages(pages, searchTerm, false);
+                }
+            });
+        } else {
+            searchForRandomImages();
+        }
+
     }
 
     void searchForRandomImages() {
