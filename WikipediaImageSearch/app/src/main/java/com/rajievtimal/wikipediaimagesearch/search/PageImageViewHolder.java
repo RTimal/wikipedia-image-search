@@ -48,6 +48,8 @@ class PageImageViewHolder extends RecyclerView.ViewHolder {
         mPage = page;
         GlideApp.with(this.itemView.getContext())
                 .load(page.getImageURL())
+                .fallback(R.drawable.page_image_placeholder)
+                .error(R.drawable.page_image_placeholder)
                 .centerCrop()
                 .listener(new RequestListener<Drawable>() {
                     @Override
