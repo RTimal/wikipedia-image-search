@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity implements PageImageTapResponder 
 
     void searchForImagesWithTerm(final String searchTerm) {
         if (searchTerm.length() > 0) {
-            SearchService.getInstance().searchForImagesWithTerm(searchTerm, new ServiceCallback<List<Page>>() {
+            SearchService.getInstance().searchForImagesWithTerm(searchTerm, true, new ServiceCallback<List<Page>>() {
                 @Override
                 public void finishedLoading(List<Page> pages, String error) {
                     //TODO: handle errors
@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity implements PageImageTapResponder 
         //Not truly random, uses alphabet to get letter to search for
         int randomIndex = new Random().nextInt(mAlphabet.length);
         final char letter = mAlphabet[randomIndex];
-        SearchService.getInstance().searchForImagesWithTerm(String.valueOf(letter), new ServiceCallback<List<Page>>() {
+        SearchService.getInstance().searchForImagesWithTerm(String.valueOf(letter), false, new ServiceCallback<List<Page>>() {
             @Override
             public void finishedLoading(List<Page> pages, String error) {
                 //TODO: Handle errors
