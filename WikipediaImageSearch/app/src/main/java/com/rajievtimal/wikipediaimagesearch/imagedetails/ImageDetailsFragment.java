@@ -72,7 +72,8 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
         if (mCurrentPage != null) {
             GlideApp.with(this.getContext())
                     .load(mCurrentPage.getImageURL())
-                    .fallback(R.drawable.page_image_placeholder)
+                    .fallback(R.drawable.large_placeholder)
+                    .error(R.drawable.large_placeholder)
                     .fitCenter()
                     .into(imageView);
 
