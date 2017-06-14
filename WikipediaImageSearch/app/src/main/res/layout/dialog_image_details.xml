@@ -52,6 +52,7 @@
             android:text="@string/reveal_answer"
             android:textColor="@color/black"
             tools:text="@string/reveal_answer"
+            android:layout_marginBottom="20dp"
             />
 
         <TextView

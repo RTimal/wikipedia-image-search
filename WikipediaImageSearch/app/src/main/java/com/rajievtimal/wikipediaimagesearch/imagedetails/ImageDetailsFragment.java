@@ -72,6 +72,8 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
                     .fallback(R.drawable.page_image_placeholder)
                     .centerCrop()
                     .into(mImageView);
+
+            mAnswer.setText(mCurrentPage.getTitle());
         }
 
         mRevealbutton.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +83,6 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
                 mGotoWebsite.setVisibility(View.VISIBLE);
             }
         });
-
 
         mGotoWebsite.setOnClickListener(new View.OnClickListener() {
             @Override

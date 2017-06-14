@@ -12,9 +12,19 @@ public class Page implements Serializable {
     String mPageId;
 
     @SerializedName("title")
-    String mCat;
+    String mTitle;
 
     public String getImageURL() {
         return (mThumbnail != null ? mThumbnail.getSourceURL() : null);
+    }
+
+    public String getPageUrl() {
+        return (mThumbnail != null ? mThumbnail.getSourceURL() : null);
+    }
+
+    public String getTitle() {
+        String title = "Title";
+        title = mTitle;
+        return title;
     }
 }
