@@ -45,7 +45,6 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putSerializable(PAGE_PARAM, mCurrentPage);
         super.onSaveInstanceState(outState);
     }
 
