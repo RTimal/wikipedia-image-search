@@ -52,13 +52,13 @@ class PageImageViewHolder extends RecyclerView.ViewHolder {
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        //mProgressBar.setVisibility(View.GONE);
+                        mProgressBar.setVisibility(View.GONE);
                         return false;
                     }
 
                     @Override
                     public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        //mProgressBar.setVisibility(View.GONE);
+                        mProgressBar.setVisibility(View.GONE);
                         return false;
                     }
                 })
