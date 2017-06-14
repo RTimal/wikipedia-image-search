@@ -2,7 +2,7 @@
 
 Features
 
-- Discover new images from Wikipedia
+- Discover new images on Wikipedia
 - Search for images
 - Guess what an image is about and check your answer.
 
