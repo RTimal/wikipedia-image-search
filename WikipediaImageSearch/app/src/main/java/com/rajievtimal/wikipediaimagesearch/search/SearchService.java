@@ -59,6 +59,11 @@ class SearchService extends BaseService {
         searchImagesWithParams(params, cb);
     }
 
+
+    //TODO: **Use timer to decrease amount of requests made.
+    //TODO: Only send HTTP requests out after user hasn't typed anything for about a second. Do this by resetting a timer on each keystroke. When the timer fires the user hasn't typed for that long.
+    //TODO: Then make the API request
+
     private void searchImagesWithParams(Map<String, String> params, final ServiceCallback<List<Page>> cb) {
         cancelPendingRequests();
         Call<QueryResponse<List<Page>>> apiCall = mSearchAPI.searchForImages(defaultParams);
