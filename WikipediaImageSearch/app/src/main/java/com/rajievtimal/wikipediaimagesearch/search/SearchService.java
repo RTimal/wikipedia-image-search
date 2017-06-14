@@ -56,7 +56,7 @@ class SearchService extends BaseService {
         }
 
         if (delay) {
-            int delayMS = 300;
+            int delayMS = 150;
             mCountDownToSearchTimer = new CountDownTimer(delayMS, delayMS) {
                 public void onTick(long millisUntilFinished) {
 
