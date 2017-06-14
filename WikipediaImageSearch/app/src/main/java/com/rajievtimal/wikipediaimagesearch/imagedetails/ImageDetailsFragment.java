@@ -66,7 +66,7 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
         });
 
         builder.setView(customDialogView);
-        
+
         ImageView imageView = (ImageView) customDialogView.findViewById(R.id.image_view);
         Button revealbutton = (Button) customDialogView.findViewById(R.id.reveal_button);
         mAnswer = (TextView) customDialogView.findViewById(R.id.answer);

@@ -14,7 +14,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PageImagesAdapter extends RecyclerView.Adapter<PageImageViewHolder> {
+class PageImagesAdapter extends RecyclerView.Adapter<PageImageViewHolder> {
 
     private List<Page> mPages = new ArrayList<>();
     private WeakReference<ImageResponder> mResponder;
@@ -23,25 +23,25 @@ public class PageImagesAdapter extends RecyclerView.Adapter<PageImageViewHolder>
         this.mResponder = responder;
     }
 
-
     @UiThread
-    public void addItems(final List<Page> pages) {
+    void addItems(final List<Page> pages) {
         this.mPages.addAll(pages);
         this.notifyItemRangeInserted(0, pages.size());
     }
 
     @UiThread
-    public void clearItems() {
-        int prevsize = 0;
+    void clearItems() {
+        int previousSuze = 0;
 
         if (mPages != null) {
-            prevsize = mPages.size();
+            previousSuze = mPages.size();
         }
 
+        assert this.mPages != null;
         this.mPages.clear();
 
         if (mPages != null) {
-            this.notifyItemRangeRemoved(0, prevsize);
+            this.notifyItemRangeRemoved(0, previousSuze);
         }
     }
 
@@ -60,9 +60,5 @@ public class PageImagesAdapter extends RecyclerView.Adapter<PageImageViewHolder>
     @Override
     public int getItemCount() {
         return mPages.size();
-    }
-
-    private void dataSetChanged() {
-        this.notifyDataSetChanged();
     }
 }
