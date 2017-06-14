@@ -8,7 +8,7 @@
 - Visit Wikipedia page from image details
 
 ### Tech
-* [Wikipedia Api] - Wikipedia API
+* [Wikipedia Api]
 * [Android Studio] - Version 2.3.3
 * [Retrofit] - Intuitive networking Library for Android
 * [Glide] - Fast image loading on Android
