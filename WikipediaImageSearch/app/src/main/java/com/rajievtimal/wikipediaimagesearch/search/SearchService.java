@@ -66,7 +66,7 @@ class SearchService extends BaseService {
                 if (response.body().getPagesWithImages() != null) {
                     cb.finishedLoading(response.body().getPagesWithImages(), null);
                 } else {
-                    //TODO: Return action error returned from API here, not just a string !
+                    //TODO: Return error returned from API here, not just a string !
                     cb.finishedLoading(null, "Error loading pages");
                 }
             }
