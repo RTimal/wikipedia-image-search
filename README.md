@@ -9,7 +9,7 @@
 
 ### Tech
 * [AndroidStudio] - Version 2.3.3
-* [Retrofit] - Latest version of Javascript
+* [Retrofit] - Intuitive networking Library for Android
 * [Glide] - Fast image loading on Android
 * Supports Android API level 16+ (Android 4.1 Jellybean and up)
 * targetSdkVersion 25
@@ -33,7 +33,17 @@
 
 ### Screenshots
 
+<br><br>
+<br><br>
 ![Discovery](/Screenshots/Screenshot1.png?raw=true "Discovery")
+<br><br>
+<br><br>
 ![Search](/Screenshots/Screenshot2.png?raw=true "Search")
-![Questio](/Screenshots/Screenshot3.png?raw=true "Question")
+<br><br>
+<br><br>
+![Question](/Screenshots/Screenshot3.png?raw=true "Question")
+<br><br>
+<br><br>
 ![Answer](/Screenshots/Screenshot4.png?raw=true "Answer")
+<br><br>
+<br><br>
