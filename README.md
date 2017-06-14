@@ -1,14 +1,15 @@
 ### Wikipedia Image Search for Android
 
-### Feature
+### Features
 
-- Discover images on Wikipedia
-- Search Wikipedia for images
+- Discover images on Wikipedia.
+- Search Wikipedia for images by page name.
 - Tap on an image to guess what it's about and check your answer.
-- Visit Wikipedia page from image details
+- Visit Wikipedia page from image details.
 
 ### Tech
-* [AndroidStudio] - Version 2.3.3
+* [Wikipedia API]
+* [Android Studio] - Version 2.3.3
 * [Retrofit] - Intuitive networking Library for Android
 * [Glide] - Fast image loading on Android
 * Supports Android API level 16+ (Android 4.1 Jellybean and up)
@@ -26,10 +27,12 @@
 - See Todo's in Java code.
 - Keys are not supposed to be in the github repo
 - Add Open Source License
+- Use Retrolambda: https://github.com/evant/gradle-retrolambda
 
-[AndroidStudio]: <http://developers.android.com>
+[Android Studio]: <http://developers.android.com>
 [Glide]: <https://github.com/bumptech/glide>
 [Retrofit]: <https://square.github.io/retrofit/>
+[Wikipedia API]: <https://en.wikipedia.org/w/api.php>
 
 
 ### Screenshots
