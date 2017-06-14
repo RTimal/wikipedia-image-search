@@ -8,7 +8,7 @@
 - Visit Wikipedia page from image details
 
 ### Tech
-* [Wikipedia Api]
+* [Wikipedia API]
 * [Android Studio] - Version 2.3.3
 * [Retrofit] - Intuitive networking Library for Android
 * [Glide] - Fast image loading on Android
@@ -32,7 +32,7 @@
 [Android Studio]: <http://developers.android.com>
 [Glide]: <https://github.com/bumptech/glide>
 [Retrofit]: <https://square.github.io/retrofit/>
-[Wikipedia Api]: <https://en.wikipedia.org/w/api.php>
+[Wikipedia API]: <https://en.wikipedia.org/w/api.php>
 
 
 ### Screenshots
