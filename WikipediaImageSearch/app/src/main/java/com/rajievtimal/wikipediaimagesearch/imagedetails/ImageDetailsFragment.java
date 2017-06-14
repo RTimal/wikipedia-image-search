@@ -1,6 +1,7 @@
 package com.rajievtimal.wikipediaimagesearch.imagedetails;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -58,6 +59,15 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View customDialogView = inflater.inflate(R.layout.dialog_image_details, null);
+
+
+        builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dismiss();
+            }
+        });
+
         builder.setView(customDialogView);
 
         mImageView = (ImageView) customDialogView.findViewById(R.id.image_view);

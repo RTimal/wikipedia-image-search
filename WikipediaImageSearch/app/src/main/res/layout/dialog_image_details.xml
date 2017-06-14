@@ -19,8 +19,8 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/image"/>
 
         <TextView
@@ -30,10 +30,10 @@
             android:layout_below="@+id/image_view"
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="@string/what_is_this_picture_of"
             android:textColor="@color/black"
@@ -45,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/question"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
@@ -52,7 +53,6 @@
             android:text="@string/reveal_answer"
             android:textColor="@color/black"
             tools:text="@string/reveal_answer"
-            android:layout_marginBottom="20dp"
             />
 
         <TextView
@@ -60,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/reveal_button"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
@@ -73,14 +74,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/answers"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
-            android:visibility="gone"
             android:background="@color/white"
             android:text="@string/go_to_website"
             android:textColor="@color/black"
-            android:layout_marginBottom="10dp"
+            android:visibility="gone"
             />
     </RelativeLayout>
 
