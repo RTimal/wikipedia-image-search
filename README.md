@@ -26,6 +26,7 @@
 - See Todo's in Java code.
 - Keys are not supposed to be in the github repo
 - Add Open Source License
+- Use Retrolambda: https://github.com/evant/gradle-retrolambda
 
 [AndroidStudio]: <http://developers.android.com>
 [Glide]: <https://github.com/bumptech/glide>
