@@ -5,4 +5,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="discover_images_text">Discover Images - </string>
+    <string name="search_results_for_string">Search results for </string>
+    <string name="search_for_images">""</string>
 </resources>

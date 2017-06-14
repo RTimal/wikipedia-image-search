@@ -1,36 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     android:id="@+id/container"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
-    tools:context="com.rajievtimal.wikipediaimagesearch.search.MainActivity">
+    tools:context="com.rajievtimal.wikipediaimagesearch.search.MainActivity">f
 
-    <FrameLayout
-        android:id="@+id/content"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        >
 
-        <TextView
-            android:id="@+id/message"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/search_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/title_home"/>
-    </FrameLayout>
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:titleTextColor="@color/black"
+            >
+
+            <android.support.v7.widget.SearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appbar"
+        android:background="@color/really_light_gray"
+        android:padding="16dp"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        tools:text="There are no results"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/page_images_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/message"
         android:background="@color/white"
         android:padding="8dp">
     </android.support.v7.widget.RecyclerView>
 
-</LinearLayout>
+
+</RelativeLayout>

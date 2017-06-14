@@ -20,20 +20,21 @@ import java.lang.ref.WeakReference;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
-public class PageImageViewHolder extends RecyclerView.ViewHolder {
+class PageImageViewHolder extends RecyclerView.ViewHolder {
 
     private final ItemPageImageBinding binding;
-    ImageView pageImageView;
-    ProgressBar mProgressBar;
-    Page mPage;
+    private ImageView mPageImageView;
+    private ProgressBar mProgressBar;
+    private Page mPage;
     View view;
     private Integer position;
     private WeakReference<ImageResponder> mResponder;
 
     public PageImageViewHolder(final View view, final ItemPageImageBinding binding, WeakReference<ImageResponder> responder) {
         super(view);
+        this.view = view;
         this.binding = binding;
-        pageImageView = (ImageView) view.findViewById(R.id.page_image_view);
+        mPageImageView = (ImageView) view.findViewById(R.id.page_image_view);
         this.mResponder = responder;
         this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         // pageImageView.setOnClickListener(view1 -> mResponder.get().didClickOnView(view1, position));
@@ -44,8 +45,7 @@ public class PageImageViewHolder extends RecyclerView.ViewHolder {
         mPage = page;
         GlideApp.with(this.itemView.getContext())
                 .load(page.getImageURL())
-//                .placeholder(R.drawable.page_image_placeholder)
-                .transition(withCrossFade(500))
+                .transition(withCrossFade())
                 .centerCrop()
                 .listener(new RequestListener<Drawable>() {
                     @Override
@@ -60,7 +60,7 @@ public class PageImageViewHolder extends RecyclerView.ViewHolder {
                         return false;
                     }
                 })
-                .into(pageImageView);
+                .into(mPageImageView);
 
         //Can also use data binding to set other properties if necessary for future implementations
         // this.binding.setPage(page);
