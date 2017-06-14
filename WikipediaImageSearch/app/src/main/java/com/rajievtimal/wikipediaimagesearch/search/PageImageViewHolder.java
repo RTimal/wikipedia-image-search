@@ -34,7 +34,7 @@ class PageImageViewHolder extends RecyclerView.ViewHolder {
         this.binding = binding;
         mPageImageView = (ImageView) view.findViewById(R.id.page_image_view);
         this.mResponder = responder;
-       // this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
+       this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         mPageImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
