@@ -8,7 +8,8 @@
 - Visit Wikipedia page from image details
 
 ### Tech
-* [AndroidStudio] - Version 2.3.3
+* [Wikipedia Api] - Wikipedia API
+* [Android Studio] - Version 2.3.3
 * [Retrofit] - Intuitive networking Library for Android
 * [Glide] - Fast image loading on Android
 * Supports Android API level 16+ (Android 4.1 Jellybean and up)
@@ -28,9 +29,10 @@
 - Add Open Source License
 - Use Retrolambda: https://github.com/evant/gradle-retrolambda
 
-[AndroidStudio]: <http://developers.android.com>
+[Android Studio]: <http://developers.android.com>
 [Glide]: <https://github.com/bumptech/glide>
 [Retrofit]: <https://square.github.io/retrofit/>
+[Wikipedia Ap]: <https://en.wikipedia.org/w/api.php>
 
 
 ### Screenshots
