@@ -24,9 +24,9 @@ class PageImageViewHolder extends RecyclerView.ViewHolder {
     private ProgressBar mProgressBar;
     private Page mPage;
     private Integer position;
-    private WeakReference<ImageResponder> mResponder;
+    private WeakReference<PageImageTapResponder> mResponder;
 
-    PageImageViewHolder(final View view, final ItemPageImageBinding binding, WeakReference<ImageResponder> responder) {
+    PageImageViewHolder(final View view, final ItemPageImageBinding binding, WeakReference<PageImageTapResponder> responder) {
         super(view);
         this.mView = view;
         this.binding = binding;

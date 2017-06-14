@@ -17,9 +17,9 @@ import java.util.List;
 class PageImagesAdapter extends RecyclerView.Adapter<PageImageViewHolder> {
 
     private List<Page> mPages = new ArrayList<>();
-    private WeakReference<ImageResponder> mResponder;
+    private WeakReference<PageImageTapResponder> mResponder;
 
-    PageImagesAdapter(WeakReference<ImageResponder> responder) {
+    PageImagesAdapter(WeakReference<PageImageTapResponder> responder) {
         this.mResponder = responder;
     }
 

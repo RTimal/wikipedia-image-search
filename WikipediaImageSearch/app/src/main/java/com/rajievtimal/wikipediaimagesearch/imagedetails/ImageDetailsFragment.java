@@ -52,11 +52,9 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View customDialogView = inflater.inflate(R.layout.dialog_image_details, null);
-
 
         builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             @Override

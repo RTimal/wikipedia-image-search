@@ -50,6 +50,7 @@ class SearchService extends BaseService {
         searchImagesWithParams(params, cb);
     }
 
+    //TODO: This is not used right now, consider remoging
     void searchForRandomImages(final ServiceCallback<List<Page>> cb) {
         Map<String, String> params = defaultParams;
         params.put(Constants.GENERATOR, Constants.GENERATOR_VALUE_RANDOM);

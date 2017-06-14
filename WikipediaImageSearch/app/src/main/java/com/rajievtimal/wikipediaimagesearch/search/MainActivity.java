@@ -22,7 +22,7 @@ import java.util.Random;
 
 import jp.wasabeef.recyclerview.animators.FadeInDownAnimator;
 
-public class MainActivity extends BaseActivity implements ImageResponder {
+public class MainActivity extends BaseActivity implements PageImageTapResponder {
 
     private TextView mTextMessage;
     private RecyclerView mRecyclerView;
@@ -45,7 +45,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         mRecyclerView.setItemAnimator(new FadeInDownAnimator());
         mLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mPageImagesAdapter = new PageImagesAdapter(new WeakReference<ImageResponder>(this));
+        mPageImagesAdapter = new PageImagesAdapter(new WeakReference<PageImageTapResponder>(this));
         mRecyclerView.setAdapter(mPageImagesAdapter);
         Toolbar toolbar = (Toolbar) this.findViewById(R.id.search_toolbar);
         setSupportActionBar(toolbar);
