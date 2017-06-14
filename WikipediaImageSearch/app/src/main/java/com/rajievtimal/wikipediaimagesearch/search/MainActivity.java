@@ -59,10 +59,14 @@ public class MainActivity extends BaseActivity implements ImageResponder {
     @Override
     protected void onResume() {
         super.onResume();
-
         //Search for some random images if there is no search term
         if (mSearchTerm.length() == 0) {
+            //Refresh random images
+            mPageImagesAdapter.clearItems();
             searchForRandomImages();
+        } else {
+            //Refresh search results
+            searchForImagesWithTerm(mSearchTerm);
         }
     }
 
