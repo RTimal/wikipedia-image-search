@@ -21,7 +21,7 @@ import java.lang.ref.WeakReference;
 class PageImageViewHolder extends RecyclerView.ViewHolder {
 
     private final ItemPageImageBinding binding;
-    View mView;
+    private View mView;
     private ImageView mPageImageView;
     private ProgressBar mProgressBar;
     private Page mPage;
