@@ -73,7 +73,7 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
         mImageView = (ImageView) customDialogView.findViewById(R.id.image_view);
         mQuestionTextView = (TextView) customDialogView.findViewById(R.id.question);
         mRevealbutton = (Button) customDialogView.findViewById(R.id.reveal_button);
-        mAnswer = (TextView) customDialogView.findViewById(R.id.answers);
+        mAnswer = (TextView) customDialogView.findViewById(R.id.answer);
         mGotoWebsite = (Button) customDialogView.findViewById(R.id.go_to_website_button);
 
         if (mCurrentPage != null) {
@@ -98,6 +98,7 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
             @Override
             public void onClick(View v) {
                 if (mCurrentPage != null) {
+                    dismiss();
                     showURL(mCurrentPage.getPageUrl());
                 }
             }
