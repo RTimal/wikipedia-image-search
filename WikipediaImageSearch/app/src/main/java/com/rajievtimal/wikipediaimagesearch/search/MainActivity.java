@@ -48,14 +48,17 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         mRecyclerView.setAdapter(mPageImagesAdapter);
         Toolbar toolbar = (Toolbar) this.findViewById(R.id.search_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        setupSearchView();
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            setupSearchView();
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
         //Search for some random images if there is no search term
         if (mSearchTerm.length() == 0) {
             searchForRandomImages();
@@ -139,6 +142,6 @@ public class MainActivity extends BaseActivity implements ImageResponder {
 
     @Override
     public void didClickOnPageImage(View view, int position) {
-        //Show wikipedia
+        //Show dialog
     }
 }

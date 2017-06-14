@@ -7,7 +7,7 @@ import com.rajievtimal.wikipediaimagesearch.base.BaseService;
 import com.rajievtimal.wikipediaimagesearch.base.Constants;
 import com.rajievtimal.wikipediaimagesearch.base.ServiceCallback;
 import com.rajievtimal.wikipediaimagesearch.entities.Page;
-import com.rajievtimal.wikipediaimagesearch.network.APIResponse;
+import com.rajievtimal.wikipediaimagesearch.network.QueryResponse;
 
 import java.util.HashMap;
 import java.util.List;
@@ -59,10 +59,10 @@ class SearchService extends BaseService {
     }
 
     private void searchImagesWithParams(Map<String, String> params, final ServiceCallback<List<Page>> cb) {
-        Call<APIResponse<List<Page>>> apiCall = mSearchAPI.searchForImages(defaultParams);
-        apiCall.enqueue(new Callback<APIResponse<List<Page>>>() {
+        Call<QueryResponse<List<Page>>> apiCall = mSearchAPI.searchForImages(defaultParams);
+        apiCall.enqueue(new Callback<QueryResponse<List<Page>>>() {
             @Override
-            public void onResponse(@NonNull Call<APIResponse<List<Page>>> call, @NonNull Response<APIResponse<List<Page>>> response) {
+            public void onResponse(@NonNull Call<QueryResponse<List<Page>>> call, @NonNull Response<QueryResponse<List<Page>>> response) {
                 if (response.body().getPagesWithImages() != null) {
                     cb.finishedLoading(response.body().getPagesWithImages(), null);
                 } else {
@@ -72,7 +72,7 @@ class SearchService extends BaseService {
             }
 
             @Override
-            public void onFailure(@NonNull Call<APIResponse<List<Page>>> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<QueryResponse<List<Page>>> call, @NonNull Throwable t) {
                 cb.finishedLoading(null, "Error loading pages");
             }
         });

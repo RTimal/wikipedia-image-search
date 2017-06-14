@@ -14,7 +14,7 @@ import java.util.Map;
 
 //This is our API Response Wrapper. T represents is the model object type
 
-public class APIResponse<T> {
+public class QueryResponse<T> {
 
     @SerializedName("query")
     private JsonElement mQuery;
