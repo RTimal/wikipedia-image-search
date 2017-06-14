@@ -7,6 +7,7 @@ import com.rajievtimal.wikipediaimagesearch.BuildConfig;
 
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -14,7 +15,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class BaseService {
 
     protected Retrofit mRetrofit;
-    protected Gson mGson;
+    private Gson mGson;
+    private Dispatcher mDispatcher;
+
 
     protected BaseService() {
         OkHttpClient client = getNewHttpClient();
@@ -25,6 +28,11 @@ public class BaseService {
                 .addConverterFactory(GsonConverterFactory.create(mGson))
                 .client(client)
                 .build();
+        mDispatcher = client.dispatcher();
+    }
+
+    protected void cancelPendingRequests() {
+        mDispatcher.cancelAll();
     }
 
     private OkHttpClient getNewHttpClient() {

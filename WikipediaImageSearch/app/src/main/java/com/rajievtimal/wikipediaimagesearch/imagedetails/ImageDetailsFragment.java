@@ -74,7 +74,7 @@ public class ImageDetailsFragment extends android.support.v4.app.DialogFragment 
             GlideApp.with(this.getContext())
                     .load(mCurrentPage.getImageURL())
                     .fallback(R.drawable.page_image_placeholder)
-                    .centerCrop()
+                    .fitCenter()
                     .into(imageView);
 
             mAnswer.setText(mCurrentPage.getTitle());

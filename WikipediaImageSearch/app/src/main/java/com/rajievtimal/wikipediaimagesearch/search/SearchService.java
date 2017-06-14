@@ -60,6 +60,7 @@ class SearchService extends BaseService {
     }
 
     private void searchImagesWithParams(Map<String, String> params, final ServiceCallback<List<Page>> cb) {
+        cancelPendingRequests();
         Call<QueryResponse<List<Page>>> apiCall = mSearchAPI.searchForImages(defaultParams);
         apiCall.enqueue(new Callback<QueryResponse<List<Page>>>() {
             @Override
