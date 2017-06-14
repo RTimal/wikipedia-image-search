@@ -92,6 +92,7 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         });
     }
 
+    //TODO: this could bea bit more readable, some code duplicated
     void loadPageImages(List<Page> pages, String searchTerm, Boolean random) {
         if (!random && !searchTerm.equals(mSearchTerm)) {
             //This is for network race conditions, current term needs to match term that the http response is for
@@ -99,12 +100,14 @@ public class MainActivity extends BaseActivity implements ImageResponder {
         }
         if (pages != null && pages.size() > 0) {
             mPageImagesAdapter.clearItems();
+            mRecyclerView.getRecycledViewPool().clear();
+
             mPageImagesAdapter.addItems(pages);
             if (random) {
                 String message = getString(R.string.discover_images_text) + " " + searchTerm.toUpperCase();
                 mTextMessage.setText(message);
             } else {
-                String message = getString(R.string.search_results_for_string) + " " + searchTerm;
+                String message = getString(R.string.search_results_for_string) + " " + '"' + searchTerm + + '"';
                 mTextMessage.setText(message);
             }
         } else {
@@ -112,6 +115,8 @@ public class MainActivity extends BaseActivity implements ImageResponder {
                 String message = "There are no results for " + '"' + mSearchTerm + '"' + ". Please try again.";
                 mTextMessage.setText(message);
                 mPageImagesAdapter.clearItems();
+                mRecyclerView.getRecycledViewPool().clear();
+
             } else {
                 searchForRandomImages();
             }
